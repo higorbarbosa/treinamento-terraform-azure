@@ -1,0 +1,14 @@
+docker image build -t acrregistrytf.azurecr.io/site:latest .
+
+docker login acrregistrytf.azurecr.io
+
+docker image push acrregistrytf.azurecr.io/site:latest
+
+
+az aks get-credentials --resource-group rg-aks --name akstf
+
+kubectl get pods
+
+kubectl get service
+
+kubectl apply -f deployment.yml --record

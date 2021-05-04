@@ -1,0 +1,5 @@
+az acr login --name acregistrytf
+
+docker pull acregistrytf.azurecr.io/containersnoazure:latest
+
+docker run -d -p 8080:80 acregistrytf.azurecr.io/containersnoazure:latest

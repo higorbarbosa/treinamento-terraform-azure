@@ -1,0 +1,12 @@
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
+ACR/.terraform.lock.hcl
+WEBAPPCONTAINER/.terraform.lock.hcl
+ACI/.terraform.lock.hcl

@@ -1,0 +1,24 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  paths:
+    include:
+      - infra/*
+
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    addToPath: true
+    architecture: 'x64'
+- script: pip install bridgecrew
+  displayName: 'Instalar BridgeCrew CLI'
+- script: bridgecrew -d infra --bc-api-key token --repo-id scan/scan --branch main
+  displayName: 'Scan com BridgeCrew'
